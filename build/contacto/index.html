@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+		<meta name="generator" content="Astro v1.5.2">
+		<meta name="description" content="Sección de la página para contactar con el artista">
+		<meta name="palabras" content="motion graphics, modelado 3D">
+		<title>Contacto</title>
+	<link rel="stylesheet" href="/assets/contacto.4ade114e.css" />
+<link rel="stylesheet" href="/assets/contacto.487531c3.css" /></head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+			  <a class="navbar-brand" href="#"><img src="icon.png" class="img-fluid" height="30px" width="30px"></a>
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="/index">Inicio</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link active" href="/galeria2">Testimonios</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link active" href="/galeria">Galeria</a>
+				  </li>
+					<li class="nav-item">
+						<a class="nav-link active" href="/ejemplo">Proyecto</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link active" href="/contacto">Contacto</a>
+			  </li>
+				</ul>
+				
+			  </div>
+			</div>
+		  </nav>
+		<main class="astro-JQY6L3CI">
+		
+		<!-- SECCIÓN DE FORMULARIO DE CONTACTO  -->
+		<section class="container py-5 astro-JQY6L3CI">
+			<div class="row astro-JQY6L3CI">
+				<div class="col-lg-6 astro-JQY6L3CI">
+					
+					<form action="/data" id="Formulario" method="get" class="astro-JQY6L3CI">
+						<div class="my-3 astro-JQY6L3CI">
+							<label for="Nombre" class="texto astro-JQY6L3CI">Nombre:</label>
+							<input type="text" name="nombre" class="form-control astro-JQY6L3CI" id="Nombre" placeholder="Ingresa tu nombre" required>
+						</div>
+						<div class="my-3 astro-JQY6L3CI">
+							<label for="Correo" class="texto astro-JQY6L3CI">Correo:</label>
+							<input type="email" name="correo" class="form-control astro-JQY6L3CI" id="Correo" placeholder="introduce tu e-mail" required>
+						</div>
+						<div class="mb-3 astro-JQY6L3CI">
+							<label for="Tel" class="texto astro-JQY6L3CI">Teléfono:</label>
+							<input type="tel" name="telefono" class="form-control astro-JQY6L3CI" id="Tel" placeholder="teléfono (opcional)">
+						</div>
+
+						<div class="mb-3 astro-JQY6L3CI">
+							<label for="Mensaje" class="texto astro-JQY6L3CI">Mensaje:</label>
+							<textarea name="mensaje" class="form-control astro-JQY6L3CI" placeholder="Comparte tu mensaje" id="Mensaje" required></textarea>
+						</div>
+
+						<button type="submit" class="form translate-middle astro-JQY6L3CI" name="enviar" style="position-x: 100px">
+							Enviar
+						</button>
+					</form>
+				</div>
+			</div>
+		</section>
+
+		<!-- MODAL DE CONFIRMACIÓN -->
+		<div class="modal fade astro-JQY6L3CI" id="modalFunciona" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog astro-JQY6L3CI">
+				<div class="modal-content astro-JQY6L3CI">
+					<div class="modal-header astro-JQY6L3CI">
+						<h5 class="modal-title astro-JQY6L3CI" id="exampleModalLabel">
+							Enviado correctamente
+						</h5>
+						<button type="button" class="btn-close astro-JQY6L3CI" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body astro-JQY6L3CI">A continuación se abrirá su aplicación de correo para envíar la información</div>
+					<div class="modal-footer astro-JQY6L3CI">
+						<button type="button" class="btn btn-secondary astro-JQY6L3CI" data-bs-dismiss="modal">Entendido</button>						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</main><script>
+		window.addEventListener("DOMContentLoaded", (event) => {
+			const formulario = document.getElementById("Formulario");
+			formulario.addEventListener("submit", (event) => {
+				event.preventDefault();
+
+				const formData = new FormData(formulario);
+				var data = {};
+				for (var pair of formData.entries()) {
+					data = {...data, [pair[0]] : pair[1]}    				
+  				}			
+
+				const referencia =
+					"mailto:Gah1810@gmail.com?subject=Quiero%20contactar%20con%20el%20artista&body=Nombre:%20" +
+					data.nombre +
+					"%0D%0ACorreo:%20" +
+					data.correo +
+					"%0D%0ATelefono:%20" +
+					data.tel +
+					"%0D%0AMensaje:%20" +
+					data.mensaje;
+
+				const enlace = document.createElement("a");
+				enlace.href = referencia;
+				enlace.click();
+
+				const modalConfirmacion = new bootstrap.Modal(document.getElementById("modalFunciona"), {});				
+				modalConfirmacion.show();
+			});
+		});
+	</script>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+		<script src="/js/Galeria.js"></script>
+	</body>
+	<footer class="bg-dark text-center text-lg-start">
+		<!-- Copyright -->
+		<div class="text-center p-3" style="color:dimgray;">
+		  © 2022 Copyright: Gerardo Aguilar Hernández
+		</div>
+		<!-- Copyright -->
+	  </footer>
+
+
+</html>
